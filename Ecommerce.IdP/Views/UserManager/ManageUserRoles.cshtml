@@ -1,0 +1,26 @@
+﻿@using Ecommerce.IdP.Models;
+@model ManageUserRolesVM
+
+<form method="post">
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>@Model.UserName</h2>
+            Add\Remoove Roles
+        </div>
+        <div class="card-body">
+            <input type="hidden" name="UserId" />
+            @for(int i = 0; i < Model.Roles.Count; i++)
+            {
+                <div class="form-check m-1">
+                    <input type="hidden" name="@Model.Roles[i]" />
+                    <input type="checkbox" name="Roles[@i].IsSelected" class="form-check-input" checked="@Model.Roles[i].IsSelected" />
+                    <label class="form-check-label">
+                        @Model.Roles[i].Name
+                    </label>
+                </div>
+            }
+          
+
+        </div>
+    </div>
+</form>
